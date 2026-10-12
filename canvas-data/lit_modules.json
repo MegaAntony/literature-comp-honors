@@ -1,0 +1,293 @@
+[
+  {
+    "id": 581471,
+    "position": 1,
+    "name": "FCS Unit 0: Academic Integrity in FCS",
+    "unlock_at": null,
+    "require_sequential_progress": false,
+    "requirement_type": "all",
+    "publish_final_grade": false,
+    "prerequisite_module_ids": [],
+    "state": "completed",
+    "completed_at": "2026-08-12T14:04:58Z",
+    "items_count": 2,
+    "items_url": "https://forsyth.instructure.com/api/v1/courses/276749/modules/581471/items",
+    "items": [
+      {
+        "id": 4593950,
+        "position": 1,
+        "title": "0.1 The Power of Originality: Keeping your Academic Integrity",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "Assignment",
+        "module_id": 581471,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4593950",
+        "content_id": 823873,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/assignments/823873",
+        "completion_requirement": {
+          "type": "min_score",
+          "min_score": 100.0,
+          "completed": true
+        }
+      },
+      {
+        "id": 4593951,
+        "position": 2,
+        "title": "0.2 Academic Integrity or Academic Dishonesty?",
+        "indent": 0,
+        "quiz_lti": true,
+        "type": "Assignment",
+        "module_id": 581471,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4593951",
+        "content_id": 823874,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/assignments/823874",
+        "completion_requirement": {
+          "type": "min_score",
+          "min_score": 100.0,
+          "completed": true
+        }
+      }
+    ]
+  },
+  {
+    "id": 581472,
+    "position": 2,
+    "name": "Course Resources",
+    "unlock_at": null,
+    "require_sequential_progress": false,
+    "requirement_type": "all",
+    "publish_final_grade": false,
+    "prerequisite_module_ids": [],
+    "state": "completed",
+    "completed_at": "2026-08-12T00:47:29Z",
+    "items_count": 1,
+    "items_url": "https://forsyth.instructure.com/api/v1/courses/276749/modules/581472/items",
+    "items": [
+      {
+        "id": 4808410,
+        "position": 1,
+        "title": "Course Information 2026-2027",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "Page",
+        "module_id": 581472,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4808410",
+        "page_url": "course-information-2026-2027",
+        "publish_at": null,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/pages/course-information-2026-2027"
+      }
+    ]
+  },
+  {
+    "id": 604578,
+    "position": 4,
+    "name": "Unit 1: Dreaming Forward",
+    "unlock_at": null,
+    "require_sequential_progress": false,
+    "requirement_type": "all",
+    "publish_final_grade": false,
+    "prerequisite_module_ids": [],
+    "state": "completed",
+    "completed_at": "2026-08-12T00:47:29Z",
+    "items_count": 10,
+    "items_url": "https://forsyth.instructure.com/api/v1/courses/276749/modules/604578/items",
+    "items": [
+      {
+        "id": 4827435,
+        "position": 1,
+        "title": "_The Cask of Amontillado_ by Poe.docx",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4827435",
+        "content_id": 20328596,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20328596"
+      },
+      {
+        "id": 4827437,
+        "position": 2,
+        "title": "_The Raven_ by Poe.docx",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4827437",
+        "content_id": 20328601,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20328601"
+      },
+      {
+        "id": 4827440,
+        "position": 3,
+        "title": "Copy of _The Lottery_ by Shirley Jackson.docx",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4827440",
+        "content_id": 20328616,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20328616"
+      },
+      {
+        "id": 4827444,
+        "position": 4,
+        "title": "The Lottery Vocab.docx",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4827444",
+        "content_id": 20328627,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20328627"
+      },
+      {
+        "id": 4827449,
+        "position": 5,
+        "title": "Grote Honors List of Short Story Terminology.docx",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4827449",
+        "content_id": 20328636,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20328636"
+      },
+      {
+        "id": 4868640,
+        "position": 6,
+        "title": "The Raven & Separation Slides",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4868640",
+        "external_url": "https://docs.google.com/presentation/d/10wBFHM-oga-3CrhHxr5dlFebykMRbSEE_4bC6-LGR8A/edit?usp=sharing",
+        "new_tab": false
+      },
+      {
+        "id": 4905419,
+        "position": 7,
+        "title": "The Veldt PDF.pdf",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4905419",
+        "content_id": 20813667,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20813667"
+      },
+      {
+        "id": 4905424,
+        "position": 8,
+        "title": "_The Most Dangerous Game_ by Richard Connell.pdf",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "File",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4905424",
+        "content_id": 20813683,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/files/20813683"
+      },
+      {
+        "id": 4905427,
+        "position": 9,
+        "title": "Multimodal Project Instructions",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4905427",
+        "external_url": "https://docs.google.com/document/d/1efKfTq6kaOIZaxhPx7HR2XSSWNjTnN0h-B3QxsvIfsw/edit?usp=sharing",
+        "new_tab": false
+      },
+      {
+        "id": 4930755,
+        "position": 10,
+        "title": "Art Analysis Paragraph Submission",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "Assignment",
+        "module_id": 604578,
+        "html_url": "https://forsyth.instructure.com/courses/276749/modules/items/4930755",
+        "content_id": 907209,
+        "url": "https://forsyth.instructure.com/api/v1/courses/276749/assignments/907209"
+      }
+    ]
+  },
+  {
+    "id": 604579,
+    "position": 5,
+    "name": "Unit 2: The Cost of Control",
+    "unlock_at": null,
+    "require_sequential_progress": false,
+    "requirement_type": "all",
+    "publish_final_grade": false,
+    "prerequisite_module_ids": [],
+    "state": "completed",
+    "completed_at": "2026-10-12T01:06:18Z",
+    "items_count": 5,
+    "items_url": "https://forsyth.instructure.com/api/v1/courses/276749/modules/604579/items",
+    "items": [
+      {
+        "id": 4982279,
+        "position": 1,
+        "title": "Source Document Example",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604579,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4982279",
+        "external_url": "https://docs.google.com/presentation/d/19lPyjrm9rLFFi7eSAf76Rs4F2mUFP-UYgpcJCjnP49g/edit?usp=sharing",
+        "new_tab": false
+      },
+      {
+        "id": 4982342,
+        "position": 2,
+        "title": "F451 Part 2 Questions",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604579,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4982342",
+        "external_url": "https://docs.google.com/document/d/1_C3GP0uDdCFNjKvbKx3mqTchqkqeHlY67QJfSBFTtf8/edit?usp=sharing",
+        "new_tab": false
+      },
+      {
+        "id": 4982344,
+        "position": 3,
+        "title": "F451 Part 1 Questions",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604579,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4982344",
+        "external_url": "https://docs.google.com/document/d/1jVtgv1u1V7YbT7ZTD_NA6II1y1CX1Sf92JeuH531_q4/edit?usp=sharing",
+        "new_tab": false
+      },
+      {
+        "id": 4982351,
+        "position": 4,
+        "title": "F451 Part 3 Questions",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604579,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4982351",
+        "external_url": "https://docs.google.com/document/d/1NKMw6IccEUCqp7Xk7ATWr9D4YfjW5j2_Vi0NuCAbLsE/edit?usp=sharing",
+        "new_tab": false
+      },
+      {
+        "id": 4983231,
+        "position": 5,
+        "title": "Dystopian Notes & Literary Lineage",
+        "indent": 0,
+        "quiz_lti": false,
+        "type": "ExternalUrl",
+        "module_id": 604579,
+        "html_url": "https://forsyth.instructure.com/api/v1/courses/276749/module_item_redirect/4983231",
+        "external_url": "https://docs.google.com/presentation/d/17iJFnebU4AtoDU5hBsE0wWQaglPLcB8op78PX2zVdVk/edit?usp=sharing",
+        "new_tab": false
+      }
+    ]
+  }
+]
