@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literature &amp; Comp I Honors — Interactive Fahrenheit 451 Practice Exam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    h1, h2, h3, h4, .font-reading { font-family: 'Lora', Georgia, serif; }
+    .font-mono-timer { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- STICKY TOP NAVIGATION + LIVE SCORE & TIMER -->
+  <header class="border-b border-slate-800 bg-slate-900/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-600 flex items-center justify-center font-black text-slate-950 text-lg shadow-lg shadow-amber-500/20 group-hover:scale-105 transition">
+          ✍️
+        </span>
+        <div>
+          <h1 class="text-sm sm:text-base font-bold tracking-wide text-white">Fahrenheit 451 Interactive Practice Exam</h1>
+          <p class="text-[11px] text-amber-400 font-medium">Literature &amp; Comp I Honors • Ms. Grote • Self-Grading Simulator</p>
+        </div>
+      </a>
+
+      <!-- SCORE & TIMER WIDGET -->
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <div class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+          <span class="text-slate-400">Score:</span>
+          <span id="liveScore" class="font-mono-timer font-bold text-emerald-400 text-sm">0 / 15</span>
+        </div>
+        <div class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 flex items-center gap-2">
+          <span>⏱️</span>
+          <span id="timerDisplay" class="font-mono-timer font-bold text-amber-300 text-sm">45:00</span>
+          <button onclick="toggleTimer()" id="timerBtn" class="px-2 py-0.5 rounded bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-[11px]">Start</button>
+        </div>
+        <a href="f451-exam-guide.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition border border-slate-700">
+          🔥 Study Guide
+        </a>
+        <a href="index.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition border border-slate-700">
+          📅 Master Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="border-b border-slate-800 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 py-8 px-4">
+    <div class="max-w-4xl mx-auto text-center space-y-3">
+      <span class="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-bold tracking-widest uppercase">
+        Simulated Summative Assessment • Wed/Thu, Oct 28–29, 2026
+      </span>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-white font-reading">
+        Test Your Mastery of <em>Fahrenheit 451</em>
+      </h2>
+      <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+        Click any answer choice in <strong>Section 1</strong> for instant feedback and rhetorical analysis, complete the <strong>Motif Matching</strong> in Section 2, and write &amp; compare your <strong>Short-Answer / DBQ Synthesis</strong> responses against A+ Honors exemplars in Section 3.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2.5 pt-2">
+        <button onclick="revealAllAnswers()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-xs transition">
+          👁️ Reveal All Answers &amp; Explanations
+        </button>
+        <button onclick="resetExam()" class="px-4 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/30 text-rose-300 font-semibold text-xs transition">
+          🔄 Reset Entire Practice Exam
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN EXAM BODY -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
+
+    <!-- SECTION 1: PASSAGE-BASED MULTIPLE CHOICE -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+        <span class="w-8 h-8 rounded-lg bg-rose-500/20 border border-rose-500/30 text-rose-400 font-extrabold flex items-center justify-center text-sm">1</span>
+        <div>
+          <h3 class="text-xl font-bold text-white font-reading">Section 1: Passage-Based Figurative, Connotative &amp; Rhetorical Analysis</h3>
+          <p class="text-xs text-slate-400">10 Multiple-Choice Questions • Click an option to grade immediately</p>
+        </div>
+      </div>
+
+      <div id="mcqContainer" class="space-y-8"></div>
+    </section>
+
+    <!-- SECTION 2: MOTIF & SYMBOL MATCHING -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 font-extrabold flex items-center justify-center text-sm">2</span>
+          <div>
+            <h3 class="text-xl font-bold text-white font-reading">Section 2: Motif &amp; Symbol Diagnostic Matching</h3>
+            <p class="text-xs text-slate-400">Select the matching letter (A–E) for each symbol, then click "Check Matching Answers"</p>
+          </div>
+        </div>
+        <button onclick="checkMatching()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition shadow-md">
+          ✔️ Check Matching Answers
+        </button>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5 text-xs">
+          <div class="font-bold text-amber-400 uppercase tracking-wider mb-1">Answer Choices Bank (A–E):</div>
+          <p><strong class="text-white">A.</strong> Baptismal cleansing that washes away kerosene and transitions Montag from mechanical destruction to natural rebirth.</p>
+          <p><strong class="text-white">B.</strong> A reflective catalyst of natural light, curiosity, and self-awareness (<em>"Are you happy?"</em>).</p>
+          <p><strong class="text-white">C.</strong> The traditional center of domestic warmth and family intimacy, replaced in the novel by cold, artificial television parlor walls.</p>
+          <p><strong class="text-white">D.</strong> Official fireman insignia representing the false belief that one can live inside destructive fire without being consumed by it.</p>
+          <p><strong class="text-white">E.</strong> Spiritual numbness, voluntary emotional anesthesia, and isolation amid constant electronic noise.</p>
+        </div>
+
+        <div id="matchingContainer" class="space-y-3 pt-2"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SHORT ANSWER & DBQ SYNTHESIS PRACTICE -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+        <span class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-extrabold flex items-center justify-center text-sm">3</span>
+        <div>
+          <h3 class="text-xl font-bold text-white font-reading">Section 3: Honors Short Answer &amp; DBQ Synthesis Practice</h3>
+          <p class="text-xs text-slate-400">Write your 4–6 sentence responses below, check the self-grading rubric, and compare against the A+ Exemplar</p>
+        </div>
+      </div>
+
+      <!-- PROMPT 1 -->
+      <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold text-[11px]">Prompt 1 • Rhetorical &amp; Symbolic Evolution</span>
+          <span id="wc1" class="text-xs font-mono-timer text-slate-400">0 words</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-white font-reading">
+          Trace how the symbol of <em>fire</em> transforms from the opening page of <em>Fahrenheit 451</em> ("It was a pleasure to burn") to Montag's encounter with Granger's campfire in Part 3 ("It was not burning, it was warming"). How does Bradbury's shift in imagery reflect Montag's internal character arc?
+        </h4>
+        <textarea id="essay1" oninput="updateWordCount(1)" rows="5" placeholder="Type your 4–6 sentence analytical response here..." class="w-full rounded-xl bg-slate-950 border border-slate-800 focus:border-rose-500 focus:outline-none p-4 text-xs sm:text-sm text-slate-100 leading-relaxed"></textarea>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+          <div class="flex flex-wrap gap-3 text-xs text-slate-300">
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Direct Claim</label>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Part 1 Quote ("python" / "pleasure")</label>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Part 3 Quote ("warming")</label>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Connotation Shift Explained</label>
+          </div>
+          <button onclick="document.getElementById('exemplar1').classList.toggle('hidden')" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">
+            ✨ Reveal A+ Honors Exemplar 1
+          </button>
+        </div>
+
+        <div id="exemplar1" class="hidden p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/40 space-y-2 text-xs sm:text-sm">
+          <div class="font-bold text-emerald-400 uppercase text-xs tracking-wider">🏆 A+ Honors Exemplar Response (Prompt 1):</div>
+          <p class="text-slate-200 italic font-reading leading-relaxed">
+            "At the outset of <em>Fahrenheit 451</em>, Bradbury characterizes fire through predatory, violent imagery—a 'great python spitting its venomous kerosene' to reduce human history to 'charcoal ruins.' This destructive flame mirrors Montag’s initial blindness as a state instrument who mistakes obliteration for pleasure. However, after Montag sheds his fireman identity in the cleansing river, he discovers Granger’s wilderness campfire and marvels that the flame is 'not burning, it was warming.' By shifting the connotation of fire from annihilation to shelter and communion, Bradbury illustrates Montag’s transformation from a destroyer of knowledge into a preserver of human connection."
+          </p>
+        </div>
+      </div>
+
+      <!-- PROMPT 2 -->
+      <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold text-[11px]">Prompt 2 • Cross-Text DBQ Synthesis</span>
+          <span id="wc2" class="text-xs font-mono-timer text-slate-400">0 words</span>
+        </div>
+        <h4 class="text-base sm:text-lg font-bold text-white font-reading">
+          Essential Question: <em>Is the censorship of books and information dangerous to society? Why or why not?</em><br>
+          <span class="text-xs sm:text-sm font-normal text-slate-300">Write one complete synthesis body paragraph that puts Ray Bradbury's <em>Fahrenheit 451</em> in direct conversation with ONE companion text (Billy Collins' <em>"Rain"</em>, Matthew Arnold's <em>"Dover Beach"</em>, <em>"The Pedestrian"</em>, or <em>The Myth of Icarus</em>).</span>
+        </h4>
+        <textarea id="essay2" oninput="updateWordCount(2)" rows="6" placeholder="Type your synthesis body paragraph here (remember to put both texts in conversation within the same paragraph)..." class="w-full rounded-xl bg-slate-950 border border-slate-800 focus:border-purple-500 focus:outline-none p-4 text-xs sm:text-sm text-slate-100 leading-relaxed"></textarea>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+          <div class="flex flex-wrap gap-3 text-xs text-slate-300">
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Topic Claim</label>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> F451 Quote &amp; Analysis</label>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Companion Quote &amp; Analysis</label>
+            <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" class="accent-emerald-500"> Both Texts in Conversation</label>
+          </div>
+          <button onclick="document.getElementById('exemplar2').classList.toggle('hidden')" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">
+            ✨ Reveal A+ Honors Exemplar 2
+          </button>
+        </div>
+
+        <div id="exemplar2" class="hidden p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/40 space-y-2 text-xs sm:text-sm">
+          <div class="font-bold text-emerald-400 uppercase text-xs tracking-wider">🏆 A+ Honors Exemplar Response (Prompt 2 — F451 + "Rain" &amp; "Dover Beach"):</div>
+          <p class="text-slate-200 italic font-reading leading-relaxed">
+            "The censorship of literature is profoundly dangerous because stripping away complex ideas does not produce true happiness; instead, it hollows out human empathy and leaves citizens emotionally paralyzed. In <em>Fahrenheit 451</em>, Mildred drowns her consciousness in Seashell radios and parlor walls, yet her repressed despair surfaces when she overdoses on sleeping pills and when Mrs. Phelps weeps uncontrollably upon hearing Matthew Arnold’s <em>'Dover Beach'</em>—a poem exposing a world that seems like a 'land of dreams' but possesses 'neither joy, nor love, nor light.' Billy Collins’s poem <em>'Rain'</em> captures this exact psychological devastation: in a world where 'there were no more books,' citizens do not celebrate their newfound simplicity, but instead are found 'curling up... quietly in corners and doorways.' While Bradbury reveals how society masks its spiritual emptiness behind deafening electronic noise, Collins exposes the silent helplessness that remains once the noise stops—proving that without literature to help us process grief, humanity is reduced to frightened, mute isolation."
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 space-y-3">
+      <p class="text-slate-300 font-semibold">Literature &amp; Composition I Honors • South Forsyth High School</p>
+      <div class="flex flex-wrap justify-center gap-4 text-slate-400">
+        <a href="index.html" class="hover:text-rose-400 transition">Master Exam Schedule</a>
+        <span>•</span>
+        <a href="f451-exam-guide.html" class="hover:text-rose-400 transition">F451 Master Study Guide</a>
+        <span>•</span>
+        <a href="f451-practice-test.html" class="hover:text-amber-400 transition">F451 Interactive Practice Test</a>
+        <span>•</span>
+        <a href="DBQ_Master_Study_Guide.html" class="hover:text-rose-400 transition">DBQ Companion Guide</a>
+        <span>•</span>
+        <a href="fahrenheit451_sheets.html" class="hover:text-rose-400 transition">Source Analysis Sheets</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        id: 1,
+        passageTitle: "Passage A (from Part 1: The Hearth and the Salamander)",
+        passage: "“It was a pleasure to burn. It was a special pleasure to see things eaten, to see things blackened and changed. With the brass nozzle in his fists, with this great python spitting its venomous kerosene upon the world, the blood pounded in his head, and his hands were the hands of some amazing conductor playing all the symphonies of blazing and burning to bring down the tatters and charcoal ruins of history.”",
+        q: "1. In Passage A, Bradbury uses the metaphor of “some amazing conductor playing all the symphonies of blazing and burning” primarily to:",
+        options: [
+          "A. Show that Montag has a secret appreciation for classical music and art despite being a fireman.",
+          "B. Reveal how Montag perceives destructive censorship as an exhilarating, artistic, and harmonious act of power before his awakening.",
+          "C. Suggest that the government forces firemen to listen to music through their Seashell radios while burning houses.",
+          "D. Emphasize the chaotic, uncoordinated nature of the firemen's brigade."
+        ],
+        correct: 1,
+        explanation: "Montag initially views book burning as an art form and a symphony of order and power, demonstrating how deeply indoctrinated he is before meeting Clarisse."
+      },
+      {
+        id: 2,
+        passageTitle: null,
+        passage: null,
+        q: "2. What is the connotative effect of describing the fire hose as a “great python spitting its venomous kerosene upon the world”?",
+        options: [
+          "A. It introduces biblical and predatory imagery, portraying the state's apparatus of censorship as a lethal, corrupting serpent poisoning human knowledge.",
+          "B. It demonstrates how nature and wildlife have overtaken the city's infrastructure.",
+          "C. It creates a humorous, lighthearted tone to contrast with the serious theme of book burning.",
+          "D. It symbolizes rebirth and shedding of old skin, foreshadowing Granger's phoenix speech."
+        ],
+        correct: 0,
+        explanation: "“Python” and “venomous” carry sinister, Edenic/serpentine connotations, framing the fireman's hose as a monstrous destroyer of wisdom and truth."
+      },
+      {
+        id: 3,
+        passageTitle: "Passage B (from Part 1: The Mechanical Hound)",
+        passage: "“The Mechanical Hound slept but did not sleep, lived but did not live in its gently humming, gently vibrating, softly illuminated kennel in a dark corner of the firehouse... Light flickered on bits of ruby glass and on sensitive capillary hairs in the nylon-brushed nostrils of the creature that quivered gently, gently, its eight legs spidered under it on rubber-padded paws.”",
+        q: "3. The opening phrase “slept but did not sleep, lived but did not live” is an example of which rhetorical/literary device, and what mood does it establish?",
+        options: [
+          "A. Hyperbole; it establishes an enthusiastic and awe-inspiring mood toward modern robotics.",
+          "B. Paradox; it establishes an eerie, uncanny mood by highlighting how technology perverts natural biology into an unnatural weapon of surveillance.",
+          "C. Allusion; it establishes a nostalgic mood referencing domesticated pets.",
+          "D. Oxymoron; it establishes a comedic mood about malfunctioning firehouse equipment."
+        ],
+        correct: 1,
+        explanation: "The statement is a paradox (a seemingly contradictory statement revealing a deeper truth), creating an uncanny, ominous mood around a machine that mimics living predators without possessing a soul."
+      },
+      {
+        id: 4,
+        passageTitle: null,
+        passage: null,
+        q: "4. Why does Bradbury repeat the word “gently” three times (“gently humming, gently vibrating... quivered gently, gently”) when describing a lethal machine?",
+        options: [
+          "A. To show that the Mechanical Hound is harmless unless provoked by Captain Beatty.",
+          "B. To create a chilling ironic contrast between the Hound's quiet, almost soothing exterior and its deadly capacity for state violence.",
+          "C. To prove that Montag is imagining the Hound's hostility due to paranoia.",
+          "D. To mirror the gentle nature of Clarisse McClellan's conversations with Montag."
+        ],
+        correct: 1,
+        explanation: "Repeating “gently” creates a disturbing juxtaposition between the Hound's quiet mechanical hum and its lethal procaine needle."
+      },
+      {
+        id: 5,
+        passageTitle: "Passage C (from Part 1: Beatty's Lecture to Montag)",
+        passage: "“Speed up the film, Montag, quick. Click, Pic, Look, Eye, Now, Flick, Here, There, Swift, Pace, Up, Down, In, Out, Why, How, Who, What, Where, Eh? Uh! Bang! Smack! Wallop, Bing, Bong, Boom! Digest-digests, digest-digest-digests. Politics? One column, two sentences, a headline! Then, in mid-air, all vanishes! Whirl man's mind around about so fast under the pumping hands of publishers, exploiters, broadcasters that the centrifuge flings off all unnecessary, time-wasting thought!”",
+        q: "5. How does Beatty's syntax (sentence structure) in Passage C reinforce his argument about how censorship began?",
+        options: [
+          "A. Long, flowing, complex sentences mirror the deep philosophical debates of the twentieth century.",
+          "B. Fragmented, monosyllabic, rapid-fire words mimic the sensory overload and shortened attention spans that caused society to abandon books voluntarily.",
+          "C. Formal legal terminology demonstrates how the government passed strict laws banning reading.",
+          "D. Poetic rhyming couplets show Beatty's hidden love for William Shakespeare."
+        ],
+        correct: 1,
+        explanation: "Beatty uses staccato, one-syllable words (“Click, Pic, Look, Eye, Now, Flick”) to imitate the frantic pace of mass media that spins the human mind like a “centrifuge.”"
+      },
+      {
+        id: 6,
+        passageTitle: null,
+        passage: null,
+        q: "6. Based on Beatty's speech across Part 1, what is the TRUE origin of book burning in Fahrenheit 451?",
+        options: [
+          "A. A totalitarian dictator seized power after a nuclear war and outlawed literacy to prevent rebellion.",
+          "B. Firehouses needed a new mission after houses were fireproofed, so they lobbied Congress to ban books.",
+          "C. Everyday citizens demanded speed, instant entertainment, and freedom from offensive or troubling ideas, gradually rendering books obsolete before the state ever stepped in.",
+          "D. Foreign enemies sabotaged the printing presses to weaken American education."
+        ],
+        correct: 2,
+        explanation: "Ms. Grote's #1 Unit 2 takeaway: censorship started from the bottom up—everyday people wanted comfort, speed, and never to feel offended or inferior."
+      },
+      {
+        id: 7,
+        passageTitle: "Passage D (from Part 2: The Sieve and the Sand)",
+        passage: "“Look at the sky—Denham’s Dentifrice! Listen to the radio—Denham’s Dentifrice!... The train radio vomited upon Montag, in retaliation, a great tonload of music made of tin, copper, silver, chromium, and brass. The people were pounded into submission; they did not run, there was no place to run; the great air-train plummeted down its shaft in the earth.”",
+        q: "7. In the context of Part 2's title (The Sieve and the Sand), what do the “sieve,” the “sand,” and the “Denham's Dentifrice” commercial represent?",
+        options: [
+          "A. Sieve = Beatty's traps; Sand = Mildred's betrayal; Commercial = Faber's ear radio.",
+          "B. Sieve = Montag's mind overwhelmed by distraction; Sand = enduring truth and scripture he tries to retain; Commercial = relentless mass media drowning out independent thought.",
+          "C. Sieve = the subway tunnel; Sand = the desert outside the city; Commercial = government war propaganda.",
+          "D. Sieve = censorship laws; Sand = kerosene; Commercial = the parlor walls."
+        ],
+        correct: 1,
+        explanation: "Sand represents tangible truth and scripture (Gospel of Matthew); the Sieve is Montag's mind unable to hold onto truth amid the deafening sensory assault of commercial propaganda."
+      },
+      {
+        id: 8,
+        passageTitle: null,
+        passage: null,
+        q: "8. Look at the verb choice in “The train radio vomited upon Montag... The people were pounded into submission.” What tone does Bradbury's diction convey?",
+        options: [
+          "A. Detached and objective.",
+          "B. Celebratory and industrial.",
+          "C. Visceral, assaultive, and suffocating.",
+          "D. Melancholic and peaceful."
+        ],
+        correct: 2,
+        explanation: "Verbs like “vomited” and “pounded into submission” establish a visceral, violent, and suffocating tone toward commercial noise."
+      },
+      {
+        id: 9,
+        passageTitle: "Passage E (from Part 3: Burning Bright)",
+        passage: "“Old Montag wanted to fly near the sun and now that he’s burnt his damn wings, he wonders why. Didn’t I hint enough when I sent the Hound around your place?”",
+        q: "9. Captain Beatty's taunt contains a direct allusion to which mythological figure, and what is Beatty's rhetorical purpose?",
+        options: [
+          "A. Prometheus; Beatty praises Montag for stealing fire from the gods to help humanity.",
+          "B. The Phoenix; Beatty predicts that Montag will rise from the ashes of his house.",
+          "C. Icarus; Beatty frames Montag's intellectual curiosity as reckless hubris (arrogance) that inevitably caused his own downfall.",
+          "D. The Salamander; Beatty reminds Montag that firemen are immune to flames."
+        ],
+        correct: 2,
+        explanation: "Beatty alludes to Icarus, whose wax wings melted when he flew too close to the sun, mocking Montag's pursuit of forbidden truth as foolish arrogance."
+      },
+      {
+        id: 10,
+        passageTitle: null,
+        passage: null,
+        q: "10. At the end of Part 3, how does Granger differentiate humanity from the mythological Phoenix?",
+        options: [
+          "A. The Phoenix only burns once, whereas humanity will never rebuild after the nuclear war.",
+          "B. Unlike the Phoenix, which blindly repeats its cycle of self-destruction, humans have the capacity to remember their mistakes through preserved history and literature so they can stop burning themselves up.",
+          "C. The Phoenix represents the firemen's trucks, whereas humanity represents the Mechanical Hound.",
+          "D. Granger argues that humans should forget the past completely in order to live like animals in the forest."
+        ],
+        correct: 1,
+        explanation: "Granger notes that while both the Phoenix and mankind repeatedly incinerate themselves, mankind has memory (“we know the damn silly thing we just did”) to break the cycle."
+      }
+    ];
+
+    const matchingItems = [
+      { id: 11, label: "11. The Hearth", correct: "C" },
+      { id: 12, label: "12. The Salamander", correct: "D" },
+      { id: 13, label: "13. Clarisse & Mirrors", correct: "B" },
+      { id: 14, label: "14. Mildred & Seashell Radios", correct: "E" },
+      { id: 15, label: "15. The River", correct: "A" }
+    ];
+
+    const mcqState = {};
+    const matchState = {};
+
+    function renderMCQ() {
+      const container = document.getElementById('mcqContainer');
+      container.innerHTML = questions.map((item, idx) => `
+        <div class="space-y-4">
+          ${item.passageTitle ? `
+            <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400">${item.passageTitle}</div>
+              <p class="text-xs sm:text-sm italic font-reading text-slate-200 leading-relaxed">${item.passage}</p>
+            </div>
+          ` : ''}
+          <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-3" id="qbox-${item.id}">
+            <h4 class="text-sm sm:text-base font-bold text-white font-reading">${item.q}</h4>
+            <div class="space-y-2">
+              ${item.options.map((opt, oIdx) => `
+                <button onclick="selectMCQ(${item.id}, ${oIdx})" id="btn-${item.id}-${oIdx}" class="w-full text-left p-3.5 rounded-xl bg-slate-950 hover:bg-slate-800/80 border border-slate-800 text-xs sm:text-sm text-slate-200 transition flex items-start justify-between gap-3">
+                  <span>${opt}</span>
+                  <span id="badge-${item.id}-${oIdx}" class="shrink-0 font-bold text-xs"></span>
+                </button>
+              `).join('')}
+            </div>
+            <div id="exp-${item.id}" class="hidden p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+              <strong class="text-amber-400">Explanation:</strong> ${item.explanation}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderMatching() {
+      const container = document.getElementById('matchingContainer');
+      container.innerHTML = matchingItems.map(item => `
+        <div class="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-950 border border-slate-800" id="mrow-${item.id}">
+          <span class="font-bold text-white">${item.label}</span>
+          <div class="flex items-center gap-3">
+            <select id="msel-${item.id}" onchange="updateLiveScore()" class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs font-bold text-amber-300 focus:outline-none">
+              <option value="">-- Select A–E --</option>
+              <option value="A">Choice A</option>
+              <option value="B">Choice B</option>
+              <option value="C">Choice C</option>
+              <option value="D">Choice D</option>
+              <option value="E">Choice E</option>
+            </select>
+            <span id="mstatus-${item.id}" class="text-xs font-bold"></span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function selectMCQ(qId, chosenIdx) {
+      const qObj = questions.find(q => q.id === qId);
+      mcqState[qId] = (chosenIdx === qObj.correct);
+
+      qObj.options.forEach((_, idx) => {
+        const btn = document.getElementById(`btn-${qId}-${idx}`);
+        const badge = document.getElementById(`badge-${qId}-${idx}`);
+        btn.className = "w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition flex items-start justify-between gap-3 ";
+        if (idx === qObj.correct) {
+          btn.className += "bg-emerald-950/40 border-emerald-500/60 text-emerald-200 font-semibold";
+          badge.textContent = "✅ Correct";
+          badge.className = "shrink-0 font-bold text-xs text-emerald-400";
+        } else if (idx === chosenIdx) {
+          btn.className += "bg-rose-950/40 border-rose-500/60 text-rose-200";
+          badge.textContent = "❌ Incorrect";
+          badge.className = "shrink-0 font-bold text-xs text-rose-400";
+        } else {
+          btn.className += "bg-slate-950 border-slate-800 text-slate-400 opacity-60";
+          badge.textContent = "";
+        }
+      });
+
+      document.getElementById(`exp-${qId}`).classList.remove('hidden');
+      updateLiveScore();
+    }
+
+    function checkMatching() {
+      matchingItems.forEach(item => {
+        const sel = document.getElementById(`msel-${item.id}`).value;
+        const status = document.getElementById(`mstatus-${item.id}`);
+        if (sel === item.correct) {
+          matchState[item.id] = true;
+          status.textContent = `✅ Correct (${item.correct})`;
+          status.className = "text-xs font-bold text-emerald-400";
+        } else {
+          matchState[item.id] = false;
+          status.textContent = sel ? `❌ Incorrect (Ans: ${item.correct})` : `⚠️ Select an answer (Ans: ${item.correct})`;
+          status.className = "text-xs font-bold text-rose-400";
+        }
+      });
+      updateLiveScore();
+    }
+
+    function updateLiveScore() {
+      let score = 0;
+      Object.values(mcqState).forEach(v => { if (v) score++; });
+      matchingItems.forEach(item => {
+        const sel = document.getElementById(`msel-${item.id}`)?.value;
+        if (sel === item.correct) score++;
+      });
+      document.getElementById('liveScore').textContent = `${score} / 15`;
+    }
+
+    function revealAllAnswers() {
+      questions.forEach(q => selectMCQ(q.id, q.correct));
+      matchingItems.forEach(item => {
+        document.getElementById(`msel-${item.id}`).value = item.correct;
+      });
+      checkMatching();
+      document.getElementById('exemplar1').classList.remove('hidden');
+      document.getElementById('exemplar2').classList.remove('hidden');
+    }
+
+    function resetExam() {
+      Object.keys(mcqState).forEach(k => delete mcqState[k]);
+      Object.keys(matchState).forEach(k => delete matchState[k]);
+      renderMCQ();
+      renderMatching();
+      document.getElementById('essay1').value = '';
+      document.getElementById('essay2').value = '';
+      updateWordCount(1);
+      updateWordCount(2);
+      document.getElementById('exemplar1').classList.add('hidden');
+      document.getElementById('exemplar2').classList.add('hidden');
+      updateLiveScore();
+    }
+
+    function updateWordCount(num) {
+      const text = document.getElementById(`essay${num}`).value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      document.getElementById(`wc${num}`).textContent = `${words} words`;
+    }
+
+    // Timer Logic
+    let timeRemaining = 45 * 60;
+    let timerInterval = null;
+    function toggleTimer() {
+      const btn = document.getElementById('timerBtn');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.textContent = 'Resume';
+      } else {
+        btn.textContent = 'Pause';
+        timerInterval = setInterval(() => {
+          if (timeRemaining > 0) {
+            timeRemaining--;
+            const m = String(Math.floor(timeRemaining / 60)).padStart(2, '0');
+            const s = String(timeRemaining % 60).padStart(2, '0');
+            document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+          } else {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            btn.textContent = 'Done';
+          }
+        }, 1000);
+      }
+    }
+
+    renderMCQ();
+    renderMatching();
+  </script>
+</body>
+</html>
