@@ -4,10 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Literature &amp; Composition I Honors — Grade 9 Portal</title>
+  <!-- Anti-flash theme initializer -->
+  <script>
+    try {
+      if (localStorage.getItem('lit_theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    } catch(e) {}
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="google-theme.css">
+  <script src="theme.js" defer></script>
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     h1, h2, h3, h4, .font-reading { font-family: 'Lora', Georgia, serif; }
@@ -37,6 +47,9 @@
         <a href="f451-practice-test.html" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold transition shadow-md">
           ✍️ F451 Practice Test
         </a>
+        <button onclick="toggleTheme()" id="themeToggleBtn" class="theme-toggle-btn" title="Toggle between Google Clean and Dark Mode">
+          🌙 Dark Mode
+        </button>
       </nav>
     </div>
   </header>
